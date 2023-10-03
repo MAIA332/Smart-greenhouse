@@ -44,20 +44,38 @@ void setup() {
   });
 
   // Cria a rotas secundárias pelos metodos POST/GET
-  server.on("/execute", HTTP_POST, [](AsyncWebServerRequest *request){
+  server.on("/ligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
     digitalWrite(LED,HIGH);
     
     if(digitalRead(LED) == HIGH){
-      Serial.println("Ligado");
+      Serial.println("Ligado lamp");
     }
     request->send(200, "text/html", htmlContentOn);
   });
 
-  server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/desligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
     digitalWrite(LED,LOW);
 
     if(digitalRead(LED) == LOW){
-      Serial.println("Desligou!");
+      Serial.println("Desligou! lamp");
+    }
+    request->send(200, "text/html", htmlContentOff);
+  });
+
+  server.on("/ligar-fan", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(LED,HIGH);
+    
+    if(digitalRead(LED) == HIGH){
+      Serial.println("Ligado fan");
+    }
+    request->send(200, "text/html", htmlContentOn);
+  });
+
+  server.on("/desligar-fan", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(LED,LOW);
+
+    if(digitalRead(LED) == LOW){
+      Serial.println("Desligou fan!");
     }
     request->send(200, "text/html", htmlContentOff);
   });
