@@ -4,10 +4,8 @@
  
 const char* ssid = "N Multifibra Turbo";
 const char* password = "nm12345678";
-const char* htmlContent = "<html><body><h1>Hello, ESP32!</h1>"
-                          "<form action='/execute' method='post'>"
-                          "<input type='submit' value='Execute Action'>"
-                          "</form></body></html>";
+const char* htmlContent = "<html><body><h1>Hello!, Esp32</h1><p>Projeto: IOT API para integrações em arduino ESP32</p><p>Documentação:https://github.com/MAIA332/IOTAPI</p>"
+                          "</body></html>";
 
 const char* htmlContentOn = "<html><body><h1>ON</h1>"
                           "</body></html>";
@@ -44,6 +42,14 @@ void setup() {
   });
 
   // Cria a rotas secundárias pelos metodos POST/GET
+  server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Acesso ao status");
+    
+    char* LEDState = digitalRead(LED);
+
+    request->send(200, "text", LEDState);
+  });
+
   server.on("/ligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
     digitalWrite(LED,HIGH);
     
