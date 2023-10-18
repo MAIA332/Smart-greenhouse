@@ -2,8 +2,8 @@
 #include <ESPAsyncWebSrv.h>
 #include <HTTPClient.h>
  
-const char* ssid = "N Multifibra Turbo";
-const char* password = "nm12345678";
+const char* ssid = "NOTE 50";
+const char* password = "39866418820";
 const char* htmlContent = "<html><body><h1>Hello!, Esp32</h1><p>Projeto: IOT API para integrações em arduino ESP32</p><p>Documentação:https://github.com/MAIA332/IOTAPI</p>"
                           "</body></html>";
 
@@ -13,7 +13,7 @@ const char* htmlContentOn = "<html><body><h1>ON</h1>"
 const char* htmlContentOff = "<html><body><h1>OFF</h1>"
                           "</body></html>";
 
-int LED = 25;
+int LED = 7;
 
 AsyncWebServer server(80);
  
@@ -42,29 +42,27 @@ void setup() {
   });
 
   // Cria a rotas secundárias pelos metodos POST/GET
-  server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
+  /* server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
     Serial.println("Acesso ao status");
     
     char* LEDState = digitalRead(LED);
 
     request->send(200, "text", LEDState);
-  });
+  }); */
 
-  server.on("/ligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(LED,HIGH);
-    
-    if(digitalRead(LED) == HIGH){
-      Serial.println("Ligado lamp");
-    }
+  server.on("/ligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){    
+   
+    Serial.println("Ligado lamp");
+    Serial.write('A');
+  
     request->send(200, "text/html", htmlContentOn);
   });
 
   server.on("/desligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(LED,LOW);
-
-    if(digitalRead(LED) == LOW){
-      Serial.println("Desligou! lamp");
-    }
+   
+    Serial.println("Desligou! lamp");
+    Serial.write('B');
+    
     request->send(200, "text/html", htmlContentOff);
   });
 
@@ -89,18 +87,11 @@ void setup() {
   // Inicia o servidor
   server.begin();
 
-  pinMode(LED,OUTPUT);
 
 }
 
 void loop() {
-  /* WiFiClient client = server.available();
-  if (client) {
-    Serial.println("Novo Cliente.");
-    Serial.println("Cliente aqui");
-    } */
-   /*  client.stop();
-    Serial.println("Client Disconnected."); */
+
 }
 
 
