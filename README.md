@@ -16,6 +16,12 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 5. Faça o upload do script em seu arduino, certifique-se de fazer o upload do arquivo corresponde ao modelo do arduino trabalhado.
 
+6. Clone o repositório do app de integração:
+
+```git clone git@github.com:MAIA332/IOTAPI.git```
+
+7. Altere o código do app de integração de acordo com suas necessidades e preferências
+
 # Modelagem eletrônica:
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
