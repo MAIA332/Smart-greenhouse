@@ -6,13 +6,15 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 1. Certifique-se de que o software do Arduino está instalado corretamente, disponível em https://www.arduino.cc/en/software
 
-2. Clone o repositório:
+2. Clone o repositório deste projeto:
 
 ```git clone git@github.com:MAIA332/ESP32.git```
 
 3. Conecte o arduino em questão ao computador e selecione dentro do software a board e a porta corretamente
 
-4. Faça o upload do script em seu arduino, certifique-se de fazer o upload do arquivo corresponde ao modelo do arduino trabalhado.
+4. Modifique o código de acordo com suas necessidades e preferências
+
+5. Faça o upload do script em seu arduino, certifique-se de fazer o upload do arquivo corresponde ao modelo do arduino trabalhado.
 
 # Modelagem eletrônica:
 
