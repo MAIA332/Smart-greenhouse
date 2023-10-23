@@ -29,13 +29,13 @@ void loop()
   Serial.print(analogRead(pinSensorA)); 
   Serial.print("  ");
   //======================================================================
-  // controle do fan de acordo com o sensor de umidade do solo
+  // controle do fan de acordo com o sensor de umidade do solo á alterar para a bomba de água
   Serial.print("  Atuador:");
   if (analogRead(pinSensorA) > 700) {
-     Serial.println("SOLENOIDE LIGADO");
+     Serial.println("Desligando modulo...");
      digitalWrite(fan, LOW);
   } else {
-    Serial.println("SOLENOIDE DESLIGADO");
+    Serial.println("Ligando modulo...");
     digitalWrite(fan, HIGH);
   }
   //======================================================================
