@@ -63,3 +63,9 @@ _projeto:_ https://www.tinkercad.com/things/icfZtYEGbAL
 
 
 _projeto:_ https://www.tinkercad.com/things/1rRbdnhr1l9
+
+# Controle de compente com fonte de alimentação externa utilizando um transistor:
+
+![image](https://github.com/MAIA332/ESP32/assets/67965680/2697ef33-0018-4d5b-a66c-0779e2887849)
+
+_projeto:_ https://www.tinkercad.com/things/dB4gOPpdXq7
