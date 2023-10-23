@@ -22,6 +22,33 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 7. Altere o código do app de integração de acordo com suas necessidades e preferências, mais informações em https://github.com/MAIA332/IOTAPI
 
+# Informações á serem alteradas
+
+## Modulo de comunicação (ESP32):
+
+### Informações de conexão wireless:
+
+```
+5 const char* ssid = "SSID";
+6 const char* password = "PASSWORD";
+```
+
+### Porta do serviço web:
+
+```
+18 AsyncWebServer server(80);
+```
+
+## Modulo de controle (UNO):
+
+### Pinagem:
+
+```
+4 #define pinSensorA A0 // Analogico do sensor de umidade do solo
+5 #define pinSensorD 8 // Digital do sensor de umidade do solo
+6 #define fan 7 // Fan frontal
+```
+
 # Modelagem eletrônica de modulos, individualmente:
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
