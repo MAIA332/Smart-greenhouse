@@ -22,7 +22,7 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 7. Altere o código do app de integração de acordo com suas necessidades e preferências, mais informações em https://github.com/MAIA332/IOTAPI
 
-# Modelagem eletrônica:
+# Modelagem eletrônica de modulos, individualmente:
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
 

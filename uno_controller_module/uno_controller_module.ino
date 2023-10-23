@@ -1,26 +1,57 @@
 // C++ code
 //
-#define led 7
+// Definição dos pinos dos componentes conectados
+#define pinSensorA A0 // Analogico do sensor de umidade do solo
+#define pinSensorD 8 // Digital do sensor de umidade do solo
+#define fan 7 // Fan frontal
 
 void setup()
 {
   Serial.begin(115200);
-  pinMode(led,OUTPUT);
-  digitalWrite(led,LOW);
+  pinMode(pinSensorD, INPUT);
+  pinMode(fan,OUTPUT);
+  digitalWrite(fan,LOW);
 
 }
 
 void loop()
 {
+  // Comunicação do sensor de umidade do solo e exibição dos valores variáveis de umidade
+  Serial.print("Digital:");
+  
+  if (digitalRead(pinSensorD)) {
+     Serial.print("SEM UMIDADE ");
+  } else {
+     Serial.print("COM UMIDADE ");
+  }
+
+  Serial.print("  Analogico:"); //Exibe os valores flutantes da umidade do solo
+  Serial.print(analogRead(pinSensorA)); 
+  Serial.print("  ");
+  //======================================================================
+  // controle do fan de acordo com o sensor de umidade do solo
+  Serial.print("  Atuador:");
+  if (analogRead(pinSensorA) > 700) {
+     Serial.println("SOLENOIDE LIGADO");
+     digitalWrite(fan, LOW);
+  } else {
+    Serial.println("SOLENOIDE DESLIGADO");
+    digitalWrite(fan, HIGH);
+  }
+  //======================================================================
+  //Detecção dos comandos manuais e informações transmitidas via comunicador (ESP32)
+
+
   if(Serial.available()>0){
   	char c = Serial.read();
     if(c=='A'){
-    	digitalWrite(led,HIGH);
+    	digitalWrite(fan,HIGH);
     }
    if(c=='B'){
-    	digitalWrite(led,LOW);
+    	digitalWrite(fan,LOW);
     }
    
   }
+  //======================================================================
  
 }
