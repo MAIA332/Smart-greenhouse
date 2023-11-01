@@ -55,7 +55,7 @@ void loop()
   //======================================================================
   // controle dos componentes de acordo com os sensores
   if (isnan(humidity) || isnan(temperature)) { // Verificação em cima da temperatura
-    Serial.println("Failed to read from DHT sensor!");
+    Serial.println("Leitura do sensor DHT11 falhou!");
   } else {
     if(temperature >= 25.00){ 
       Serial.println("Temperatura acima de 25°C, desligando sistema termico...."); // Verifica se a temperatura está acimad e 25 graus, desliga a lampada termica e liga os fans caso estejas desligados
@@ -137,7 +137,8 @@ void loop()
       digitalWrite(bomba,LOW);
     }
     else if(c=="S"){
-      //digitalWrite(bomba,LOW);
+      Serial.println("Requisição recebida!");
+      Serial.write("O");
     }
    
   }

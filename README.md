@@ -116,6 +116,8 @@ Biblioteca para comunicação web via protocolo HHTP
 
 ## Mapeamento de comandos serial para controle manual:
 
+### Verificação serial arduino UNO
+
 **A**: Ligação dos dois fans
 
 **B**: Desligamento dos dois fans 
@@ -137,6 +139,10 @@ Biblioteca para comunicação web via protocolo HHTP
 **H**: Desligamento da bomba de água
 
 **S**: Comando para checagem de portas e estados
+
+### Verificação serial arduino ESP32
+
+**O**: feedback positivo para requisição do estado das portas
 
 # Modelagem eletrônica de modulos, individualmente:
 
