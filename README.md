@@ -20,7 +20,7 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 ```git clone git@github.com:MAIA332/IOTAPI.git```
 
-7. Altere o código do app de integração de acordo com suas necessidades e preferências
+7. Altere o código do app de integração de acordo com suas necessidades e preferências, mais informações em https://github.com/MAIA332/IOTAPI
 
 # Modelagem eletrônica:
 
