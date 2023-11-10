@@ -22,7 +22,129 @@ Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 co
 
 7. Altere o código do app de integração de acordo com suas necessidades e preferências, mais informações em https://github.com/MAIA332/IOTAPI
 
-# Modelagem eletrônica:
+# Bibliotecas:
+
+Para garantir o funcionamento do software de ambas aas micro controladoras, será necessário instalar algumas dependências, sendo elas:
+
+## Arduino UNO:
+
+### DHT.h
+
+Biblioteca para o sensor de temperatura
+
+```
+#include <DHT.h>
+
+```
+
+## ESP32:
+
+### WIFI:
+
+Biblioteca para acionamento da conexão wireless no ESP32
+
+```
+#include <WiFi.h>
+```
+
+### Async Web Service:
+
+Biblioteca para disponibilização de um "servidor web" dentro do ESP32, trabalhando de maneira assincrona
+
+```
+#include <ESPAsyncWebSrv.h>
+```
+
+### HTTP:
+
+Biblioteca para comunicação web via protocolo HHTP
+
+```
+#include <HTTPClient.h>
+```
+
+# Informações a serem alteradas
+
+## Modulo de comunicação (ESP32):
+
+### Informações de conexão wireless:
+
+```
+5 const char* ssid = "SSID";
+6 const char* password = "PASSWORD";
+```
+
+### Porta do serviço web:
+
+```
+18 AsyncWebServer server(80);
+```
+
+## Modulo de controle (UNO):
+
+### Pinagem:
+
+### Descrição:
+
+**LAMPADA UV**: PORTA 2
+
+**LAMPADA TERMICA**: PORTA 4
+
+**FAN1** (exaustor) : PORTA 13
+
+**FAN2:** (ventilador) PORTA 12
+
+**SENSOR DE UM SOLO**: A0 e 10
+
+**TEMPERATURA**: PORTA 6
+
+**BOMBA**: PORTA 8
+
+### Código: 
+
+```
+1 #define pinSensorA A02
+2 #define pinSensorD 10
+3 #define fan1 12
+4 #define fan2 13
+5 #define bomba 8
+6 #define lampadaT 4
+7 #define lampadaUV 2
+8 #define DHTPIN  6   
+
+```
+
+## Mapeamento de comandos serial para controle manual:
+
+### Verificação serial arduino UNO
+
+**A**: Ligação dos dois fans
+
+**B**: Desligamento dos dois fans 
+
+**AA**: Ligação do fan frontal
+
+**AB**: Ligação do fan traseiro
+
+**C**: Ligação da lampada termica
+
+**D**: Desligamento da lampada termica
+
+**E**: Ligação da lampada UV
+
+**F**: Desligamento da lampadava UV
+
+**G**: Ligação da bomba de água
+
+**H**: Desligamento da bomba de água
+
+**S**: Comando para checagem de portas e estados
+
+### Verificação serial arduino ESP32
+
+**O**: feedback positivo para requisição do estado das portas
+
+# Modelagem eletrônica de modulos, individualmente:
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
 
@@ -36,3 +158,9 @@ _projeto:_ https://www.tinkercad.com/things/icfZtYEGbAL
 
 
 _projeto:_ https://www.tinkercad.com/things/1rRbdnhr1l9
+
+# Controle de compente com fonte de alimentação externa utilizando um transistor:
+
+![image](https://github.com/MAIA332/ESP32/assets/67965680/2697ef33-0018-4d5b-a66c-0779e2887849)
+
+_projeto:_ https://www.tinkercad.com/things/dB4gOPpdXq7

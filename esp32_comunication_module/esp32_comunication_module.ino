@@ -2,8 +2,8 @@
 #include <ESPAsyncWebSrv.h>
 #include <HTTPClient.h>
  
-const char* ssid = "NOTE 50";
-const char* password = "39866418820";
+const char* ssid = "Escritorio Mesh";
+const char* password = "nm12345678";
 const char* htmlContent = "<html><body><h1>Hello!, Esp32</h1><p>Projeto: IOT API para integrações em arduino ESP32</p><p>Documentação:https://github.com/MAIA332/IOTAPI</p>"
                           "</body></html>";
 
@@ -12,13 +12,11 @@ const char* htmlContentOn = "<html><body><h1>ON</h1>"
 
 const char* htmlContentOff = "<html><body><h1>OFF</h1>"
                           "</body></html>";
-
-int LED = 7;
-
+                          
 AsyncWebServer server(80);
  
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
  
   Serial.println();
   Serial.print("Conectando-se a ");
@@ -41,49 +39,35 @@ void setup() {
     request->send(200, "text/html", htmlContent);
   });
 
-  // Cria a rotas secundárias pelos metodos POST/GET
-  /* server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
+  // Cria a rota de visualização de status pelos metodos POST/GET
+  server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
     Serial.println("Acesso ao status");
-    
-    char* LEDState = digitalRead(LED);
+    Serial.write("S");
 
-    request->send(200, "text", LEDState);
-  }); */
+    request->send(200, "text", "Requisicao de dados em andamento...");
+  });
 
-  server.on("/ligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){    
-   
-    Serial.println("Ligado lamp");
-    Serial.write('A');
+  //Rota para inicialização dos componentes
+  server.on("/test", HTTP_POST, [](AsyncWebServerRequest *request){
+    String postBody = request->arg("params");
+    Serial.println("Rota para inicialização dos componentes");
+    Serial.println(postBody);
+    request->send(200, "text/plain", postBody);
+  });
+
+  server.on("/ligar-lamp-termica", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para inicialização da lampada termica");
+    Serial.write("C");
+    request->send(200, "text/plain", "Rota para inicialização da lampada termica");
+  });
   
-    request->send(200, "text/html", htmlContentOn);
+  server.on("/desligar-lamp-termica", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para desligamento da lampada termica");
+    Serial.write("D");
+    request->send(200, "text/plain", "Rota para desligamento da lampada termica");
   });
-
-  server.on("/desligar-lamp", HTTP_GET, [](AsyncWebServerRequest *request){
-   
-    Serial.println("Desligou! lamp");
-    Serial.write('B');
-    
-    request->send(200, "text/html", htmlContentOff);
-  });
-
-  server.on("/ligar-fan", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(LED,HIGH);
-    
-    if(digitalRead(LED) == HIGH){
-      Serial.println("Ligado fan");
-    }
-    request->send(200, "text/html", htmlContentOn);
-  });
-
-  server.on("/desligar-fan", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(LED,LOW);
-
-    if(digitalRead(LED) == LOW){
-      Serial.println("Desligou fan!");
-    }
-    request->send(200, "text/html", htmlContentOff);
-  });
-
+  
+  
   // Inicia o servidor
   server.begin();
 
@@ -92,6 +76,14 @@ void setup() {
 
 void loop() {
 
-}
+  if(Serial.available()>0){
+  	char c = Serial.read();
 
+    if(c=='O'){
+    	Serial.println("Resposta da requisicao, status: OK");
+    }
+
+  }
+
+}
 
