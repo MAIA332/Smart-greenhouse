@@ -55,6 +55,8 @@ void setup() {
     request->send(200, "text/plain", postBody);
   });
 
+  // ================ lampada termica ===================
+
   server.on("/ligar-lamp-termica", HTTP_GET, [](AsyncWebServerRequest *request){
     Serial.println("Rota para inicialização da lampada termica");
     Serial.write("C");
@@ -66,7 +68,48 @@ void setup() {
     Serial.write("D");
     request->send(200, "text/plain", "Rota para desligamento da lampada termica");
   });
+
+  // ================ lampada UV ===================
+
+  server.on("/ligar-lamp-uv", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para inicialização da lampada UV");
+    Serial.write("E");
+    request->send(200, "text/plain", "Rota para inicialização da lampada UV");
+  });
+
+  server.on("/desligar-lamp-uv", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para desligamento da lampada UV");
+    Serial.write("F");
+    request->send(200, "text/plain", "Rota para desligamento da lampada UV");
+  });
+
+  // ================ bombda d'agua ===================
   
+  server.on("/ligar-bomba", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para inicialização da bomba");
+    Serial.write("G");
+    request->send(200, "text/plain", "Rota para inicialização da bomba");
+  });
+
+  server.on("/desligar-bomba", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para desligamento da bomba");
+    Serial.write("H");
+    request->send(200, "text/plain", "Rota para desligamento da bomba");
+  });
+
+  // ================ fans ===================
+
+  server.on("/ligar-fans", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para inicialização da fans");
+    Serial.write("A");
+    request->send(200, "text/plain", "Rota para inicialização da fans");
+  });
+
+  server.on("/desligar-fans", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("Rota para desligamento da fans");
+    Serial.write("B");
+    request->send(200, "text/plain", "Rota para desligamento da fans");
+  });
   
   // Inicia o servidor
   server.begin();
