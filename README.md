@@ -144,6 +144,10 @@ Biblioteca para comunicação web via protocolo HHTP
 
 **O**: feedback positivo para requisição do estado das portas
 
+# Estufa montada:
+
+![image](github/estufa.gif)
+
 # Modelagem eletrônica de modulos, individualmente:
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
