@@ -152,19 +152,19 @@ Biblioteca para comunicação web via protocolo HHTP
 
 ## Comunicação serial entre arduinos simulada utilizando TinkerCad:
 
-![image](https://github.com/MAIA332/ESP32/assets/67965680/8c9fb412-fff2-4af4-a333-3b464aa222f5)
+![image](https://github.com/MAIA332/Smart-greenhouse/assets/67965680/8c9fb412-fff2-4af4-a333-3b464aa222f5)
 
 _projeto:_ https://www.tinkercad.com/things/icfZtYEGbAL
 
 # Sensor de umidade do solo simulada utilizando TinkerCad:
 
-![image](https://github.com/MAIA332/ESP32/assets/67965680/76c47e77-0064-4e42-862c-b754248275ff)
+![image](https://github.com/MAIA332/Smart-greenhouse/assets/67965680/76c47e77-0064-4e42-862c-b754248275ff)
 
 
 _projeto:_ https://www.tinkercad.com/things/1rRbdnhr1l9
 
 # Controle de compente com fonte de alimentação externa utilizando um transistor:
 
-![image](https://github.com/MAIA332/ESP32/assets/67965680/2697ef33-0018-4d5b-a66c-0779e2887849)
+![image](https://github.com/MAIA332/Smart-greenhouse/assets/67965680/2697ef33-0018-4d5b-a66c-0779e2887849)
 
 _projeto:_ https://www.tinkercad.com/things/dB4gOPpdXq7
