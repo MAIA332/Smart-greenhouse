@@ -2,6 +2,8 @@
 
 Biblioteca de scripts de automação e integração, utilizando Arduino ESP32 como comunicador com interface API e um arduino UNO como controlador de componentes. Este repositório tem como objetivo fornecer os scripts dos microcontroladores utilizado no projeto de uma estufa inteligente, para o controle e monitoramento no cultivo de plantas no geral.
 
+No projeto da estufa inteligente, a biblioteca proporciona um conjunto de scripts elaborados para realizar tarefas específicas, como o controle de temperatura, umidade, iluminação e irrigação. A utilização do Arduino ESP32 como comunicador é estratégica, pois permite a integração fácil com outros dispositivos conectados à rede, ampliando as possibilidades de monitoramento remoto e ajuste de parâmetros em tempo real. Essa abordagem contribui significativamente para a eficiência do cultivo de plantas, garantindo condições ideais para o seu crescimento
+
 # Utiliziação:
 
 1. Certifique-se de que o software do Arduino está instalado corretamente, disponível em https://www.arduino.cc/en/software
